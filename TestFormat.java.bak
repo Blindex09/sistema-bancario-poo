@@ -1,0 +1,11 @@
+import java.math.BigDecimal;
+
+public class TestFormat {
+    public static void main(String[] args) {
+        BigDecimal valor = new BigDecimal("500.00");
+        String formatado = String.format("R$ %.2f", valor);
+        System.out.println("Valor formatado: " + formatado);
+        System.out.println("Contém '500.00'? " + formatado.contains("500.00"));
+        System.out.println("Contém '500,00'? " + formatado.contains("500,00"));
+    }
+}
