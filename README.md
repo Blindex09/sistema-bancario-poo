@@ -1,38 +1,38 @@
-# 🏦 Sistema Bancário POO - NTT Data Bootcamp
+🏦 Sistema Bancário POO - NTT Data Bootcamp
 
-> Sistema bancário desenvolvido em Java com Programação Orientada a Objetos para o bootcamp NTT Data
+Sistema bancário desenvolvido em Java com Programação Orientada a Objetos para o bootcamp NTT Data
 
-## 📋 Descrição
+📋 Descrição
 
 Este é um sistema bancário completo desenvolvido em Java que demonstra os conceitos fundamentais da Programação Orientada a Objetos (POO), incluindo:
 
-- ✅ **Herança** - Classes de conta que herdam de uma classe abstrata base
-- ✅ **Encapsulamento** - Propriedades privadas com getters/setters
-- ✅ **Polimorfismo** - Métodos abstratos implementados de forma específica
-- ✅ **Abstração** - Classes abstratas e interfaces bem definidas
-- ✅ **Reuso de código** - Padrões Repository e Service
+- ✅ Herança - Classes de conta que herdam de uma classe abstrata base
+- ✅ Encapsulamento - Propriedades privadas com getters/setters
+- ✅ Polimorfismo - Métodos abstratos implementados de forma específica
+- ✅ Abstração - Classes abstratas e interfaces bem definidas
+- ✅ Reuso de código - Padrões Repository e Service
 
-## 🚀 Funcionalidades
+🚀 Funcionalidades
 
-### 👥 Gerenciamento de Clientes
+👥 Gerenciamento de Clientes
 - Cadastro de novos clientes
 - Busca por CPF
 - Listagem de todos os clientes
 
-### 💳 Gerenciamento de Contas
+💳 Gerenciamento de Contas
 - Criação de contas (Corrente, Poupança, Investimento)
 - Busca de contas por agência/número
 - Listagem de contas por CPF
 - Consulta de saldo
 
-### 💰 Transações Bancárias
-- **Depósito** - Adicionar dinheiro à conta
-- **Saque** - Retirar dinheiro (com validações de limite)
-- **Transferência** - Entre contas do mesmo banco
-- **PIX** - Transferência instantânea usando CPF como chave
+💰 Transações Bancárias
+- Depósito - Adicionar dinheiro à conta
+- Saque - Retirar dinheiro (com validações de limite)
+- Transferência - Entre contas do mesmo banco
+- PIX - Transferência instantânea usando CPF como chave
 
-### 📈 Sistema de Investimentos
-- **6 tipos de investimento disponíveis:**
+📈 Sistema de Investimentos
+- 6 tipos de investimento disponíveis:
   - Poupança (0.5% a.m.)
   - CDB (0.8% a.m.)
   - LCI (0.7% a.m.)
@@ -43,17 +43,17 @@ Este é um sistema bancário completo desenvolvido em Java que demonstra os conc
 - Resgate com cálculo de rendimentos
 - Portfólio consolidado
 
-### 📊 Relatórios e Consultas
+📊 Relatórios e Consultas
 - Extrato detalhado de contas
 - Relatório geral do banco
 - Relatório de investimentos
 - Posição consolidada por cliente
 - Ranking de clientes por patrimônio
 
-## 🎯 Conceitos de POO Demonstrados
+🎯 Conceitos de POO Demonstrados
 
-### 1. Herança
-```java
+1. Herança
+
 public abstract class Conta {
     // Classe base abstrata
 }
@@ -65,32 +65,28 @@ public class ContaCorrente extends Conta {
 public class ContaPoupanca extends Conta {
     // Implementação específica para poupança
 }
-```
 
-### 2. Polimorfismo
-```java
+2. Polimorfismo
+
 // Método abstrato implementado de forma diferente em cada subclasse
 public abstract boolean sacar(BigDecimal valor);
 public abstract BigDecimal calcularTarifas();
-```
 
-### 3. Encapsulamento
-```java
+3. Encapsulamento
+
 private BigDecimal saldo;
 private Cliente titular;
 
 public BigDecimal getSaldo() { return saldo; }
 protected void setSaldo(BigDecimal saldo) { this.saldo = saldo; }
-```
 
-### 4. Abstração
+4. Abstração
 - Interface clara entre serviços e repositórios
 - Separação de responsabilidades
 - Métodos abstratos bem definidos
 
-## 🏗️ Arquitetura do Projeto
+🏗️ Arquitetura do Projeto
 
-```
 src/main/java/com/nttdata/banco/
 ├── Main.java                     # Classe principal
 ├── model/                        # Modelos de domínio
@@ -119,113 +115,106 @@ src/main/java/com/nttdata/banco/
     ├── MenuTransacao.java
     ├── MenuInvestimento.java
     └── MenuRelatorio.java
-```
 
-## 🔧 Como Executar
+🔧 Como Executar
 
-### Pré-requisitos
+Pré-requisitos
 - Java 17 ou superior
 - IDE de sua preferência (IntelliJ IDEA, Eclipse, VS Code)
 
-### Compilação e Execução
+Compilação e Execução
 
-1. **Clone o repositório:**
-```bash
+1. Clone o repositório:
+
 git clone https://github.com/Blindex09/sistema-bancario-poo.git
 cd sistema-bancario-poo
-```
 
-2. **Compile o projeto:**
-```bash
-javac -d out -cp src src/main/java/com/nttdata/banco/Main.java src/main/java/com/nttdata/banco/**/*.java
-```
+2. Compile o projeto:
 
-3. **Execute o sistema:**
-```bash
+javac -d out -cp src src/main/java/com/nttdata/banco/Main.java src/main/java/com/nttdata/banco/A*/A.java
+
+3. Execute o sistema:
+
 java -cp out com.nttdata.banco.Main
-```
 
-### Usando IDE
+Usando IDE
 1. Importe o projeto na sua IDE
 2. Configure o JDK 17+
-3. Execute a classe `Main.java`
+3. Execute a classe Main.java
 
-## 🎮 Como Usar
+🎮 Como Usar
 
-### Dados Pré-Carregados
+Dados Pré-Carregados
 O sistema já vem com dados de exemplo:
-- **Cliente 1:** João Silva (CPF: 12345678901)
+- Cliente 1: João Silva (CPF: 12345678901)
   - Conta Corrente: 0001-001001 (R$ 5.000,00)
   - Conta Poupança: 0001-001002 (R$ 10.000,00)
-- **Cliente 2:** Maria Santos (CPF: 98765432100)
+- Cliente 2: Maria Santos (CPF: 98765432100)
   - Conta Investimento: 0001-001003 (R$ 25.000,00)
 
-### Fluxo de Uso Recomendado
-1. **Explore o menu principal** e familiarize-se com as opções
-2. **Teste as transações** com as contas pré-carregadas
-3. **Experimente os investimentos** - use a simulação primeiro
-4. **Consulte os relatórios** para ver o resultado das operações
-5. **Crie novos clientes** e contas para testar completamente
+Fluxo de Uso Recomendado
+1. Explore o menu principal e familiarize-se com as opções
+2. Teste as transações com as contas pré-carregadas
+3. Experimente os investimentos - use a simulação primeiro
+4. Consulte os relatórios para ver o resultado das operações
+5. Crie novos clientes e contas para testar completamente
 
-## 📝 Exemplos de Uso
+📝 Exemplos de Uso
 
-### Realizando um PIX
-```
+Realizando um PIX
+
 1. Acesse "Transações Bancárias" > "PIX"
 2. Conta origem: Agência 0001, Conta 001001
 3. Chave PIX (CPF): 98765432100
 4. Valor: R$ 500,00
-```
 
-### Investindo
-```
+Investindo
+
 1. Acesse "Investimentos" > "Realizar Investimento"
 2. Conta: Agência 0001, Conta 001001
 3. Tipo: Tesouro Direto (0.9% a.m.)
 4. Valor: R$ 1.000,00
-```
 
-### Consultando Posição Consolidada
-```
+Consultando Posição Consolidada
+
 1. Acesse "Relatórios" > "Posição Consolidada"
 2. Digite o CPF: 12345678901
 3. Veja todas as contas e investimentos do cliente
-```
 
-## 🧪 Características Técnicas
+🧪 Características Técnicas
 
-### Padrões de Design Utilizados
-- **Repository Pattern** - Abstração da camada de dados
-- **Service Pattern** - Lógica de negócio centralizada
-- **Strategy Pattern** - Diferentes comportamentos por tipo de conta
-- **Factory Pattern** - Criação de contas por tipo
+Padrões de Design Utilizados
+- Repository Pattern - Abstração da camada de dados
+- Service Pattern - Lógica de negócio centralizada
+- Strategy Pattern - Diferentes comportamentos por tipo de conta
+- Factory Pattern - Criação de contas por tipo
 
-### Boas Práticas Implementadas
-- Uso de `BigDecimal` para valores monetários
+Boas Práticas Implementadas
+- Uso de BigDecimal para valores monetários
 - Imutabilidade nas classes de transação
 - Validações de negócio robustas
 - Tratamento de exceções
 - Código limpo e bem documentado
 - Nomes descritivos em português
 
-### Recursos Java Utilizados
+Recursos Java Utilizados
 - Java 17+ com record e switch expressions
 - Collections Framework (List, Map, Stream)
 - LocalDate e LocalDateTime para datas
 - Enums com comportamentos
 - Generics e Optional
 
-## 🎓 Objetivos Pedagógicos Alcançados
+🎓 Objetivos Pedagógicos Alcançados
 
-✅ **Herança** - Demonstrada nas classes de conta
-✅ **Encapsulamento** - Propriedades privadas com acesso controlado
-✅ **Polimorfismo** - Métodos que se comportam diferente por tipo
-✅ **Abstração** - Classes abstratas e interfaces bem definidas
-✅ **Reuso de código** - Padrões e estruturas reutilizáveis
-✅ **Separação de responsabilidades** - Arquitetura em camadas
-✅ **Tratamento de dados** - Validações e conversões adequadas
+✅ Herança - Demonstrada nas classes de conta
+✅ Encapsulamento - Propriedades privadas com acesso controlado
+✅ Polimorfismo - Métodos que se comportam diferente por tipo
+✅ Abstração - Classes abstratas e interfaces bem definidas
+✅ Reuso de código - Padrões e estruturas reutilizáveis
+✅ Separação de responsabilidades - Arquitetura em camadas
+✅ Tratamento de dados - Validações e conversões adequadas
 
-## 🚀 Possíveis Melhorias
+🚀 Possíveis Melhorias
 
 - [ ] Persistência em banco de dados
 - [ ] Interface gráfica (JavaFX/Swing)
@@ -236,18 +225,18 @@ O sistema já vem com dados de exemplo:
 - [ ] Autenticação e autorização
 - [ ] Relatórios em PDF
 
-## 👨‍💻 Autor
+👨‍💻 Autor
 
-**Blindex09**
+Blindex09
 - Bootcamp: NTT Data - Java para Iniciantes
-- GitHub: [@Blindex09](https://github.com/Blindex09)
+- GitHub: @Blindex09
 
-## 📄 Licença
+📄 Licença
 
 Este projeto foi desenvolvido para fins educacionais como parte do bootcamp NTT Data.
 
 ---
 
-⭐ **Dica:** Explore todas as funcionalidades do sistema! Cada menu tem surpresas e demonstra conceitos importantes de POO.
+⭐ Dica: Explore todas as funcionalidades do sistema! Cada menu tem surpresas e demonstra conceitos importantes de POO.
 
-🎯 **Meta:** Este projeto demonstra que a Programação Orientada a Objetos não é apenas teoria - é uma ferramenta poderosa para criar sistemas robustos e organizados!
+🎯 Meta: Este projeto demonstra que a Programação Orientada a Objetos não é apenas teoria - é uma ferramenta poderosa para criar sistemas robustos e organizados!
