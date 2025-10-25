@@ -19,8 +19,7 @@ public class AccessibilityUtils {
                                                String descricao) {
         componente.getAccessibleContext().setAccessibleName(nome);
         componente.getAccessibleContext().setAccessibleDescription(descricao);
-        // Remove ToolTipText para evitar duplicação no leitor de telas
-        // componente.setToolTipText(descricao);
+        componente.setToolTipText(descricao);
     }
     
     /**
@@ -30,12 +29,12 @@ public class AccessibilityUtils {
                                               String texto, 
                                               String descricao,
                                               String atalho) {
-        // Remove duplicação - só define AccessibleName sem AccessibleDescription repetitiva
-        botao.getAccessibleContext().setAccessibleName(texto);
+        configurarAcessibilidade(botao, texto, descricao);
         
-        // Adiciona mnemônico se especificado sem alterar o texto visível
+        // Adiciona mnemônico se especificado
         if (atalho != null && !atalho.isEmpty()) {
             botao.setMnemonic(atalho.charAt(0));
+            botao.setText(texto + " (" + atalho + ")");
         }
         
         // Garante tamanho mínimo para toque
