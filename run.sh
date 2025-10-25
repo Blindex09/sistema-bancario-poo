@@ -28,8 +28,12 @@ case $opcao in
             java -jar sistema-gui/target/sistema-bancario-gui-standalone.jar
         else
             echo "⚠️  JAR não encontrado. Compilando primeiro..."
-            mvn package -DskipTests
-            java -jar sistema-gui/target/sistema-bancario-gui-standalone.jar
+            if mvn package -DskipTests; then
+                java -jar sistema-gui/target/sistema-bancario-gui-standalone.jar
+            else
+                echo "❌ Erro ao compilar o projeto. Verifique os erros acima."
+                exit 1
+            fi
         fi
         ;;
     3)
