@@ -87,60 +87,106 @@ protected void setSaldo(BigDecimal saldo) { this.saldo = saldo; }
 
 🏗️ Arquitetura do Projeto
 
-src/main/java/com/nttdata/banco/
-├── Main.java                     # Classe principal
-├── model/                        # Modelos de domínio
-│   ├── Cliente.java
-│   ├── Endereco.java
-│   ├── Conta.java               # Classe abstrata
-│   ├── ContaCorrente.java       # Herança
-│   ├── ContaPoupanca.java       # Herança
-│   ├── ContaInvestimento.java   # Herança
-│   ├── Transacao.java           # Imutável
-│   └── Investimento.java
-├── enums/                       # Enumerações
-│   ├── TipoConta.java
-│   ├── TipoTransacao.java
-│   └── TipoInvestimento.java
-├── repository/                  # Camada de dados
-│   ├── ClienteRepository.java
-│   ├── ContaRepository.java
-│   └── InvestimentoRepository.java
-├── service/                     # Lógica de negócio
-│   └── BancoService.java
-└── menu/                        # Interface do usuário
-    ├── MenuPrincipal.java
-    ├── MenuCliente.java
-    ├── MenuConta.java
-    ├── MenuTransacao.java
-    ├── MenuInvestimento.java
-    └── MenuRelatorio.java
+O projeto está organizado como um multi-módulo Maven:
+
+```
+sistema-bancario-poo/
+├── pom.xml                          # POM parent do projeto
+├── sistema-core/                    # Módulo principal do sistema
+│   ├── pom.xml
+│   └── src/main/java/com/nttdata/banco/
+│       ├── Main.java                # Classe principal console
+│       ├── model/                   # Modelos de domínio
+│       │   ├── Cliente.java
+│       │   ├── Endereco.java
+│       │   ├── Conta.java           # Classe abstrata
+│       │   ├── ContaCorrente.java   # Herança
+│       │   ├── ContaPoupanca.java   # Herança
+│       │   ├── ContaInvestimento.java # Herança
+│       │   ├── Transacao.java       # Imutável
+│       │   └── Investimento.java
+│       ├── enums/                   # Enumerações
+│       │   ├── TipoConta.java
+│       │   ├── TipoTransacao.java
+│       │   └── TipoInvestimento.java
+│       ├── repository/              # Camada de dados
+│       │   ├── ClienteRepository.java
+│       │   ├── ContaRepository.java
+│       │   └── InvestimentoRepository.java
+│       ├── service/                 # Lógica de negócio
+│       │   └── BancoService.java
+│       └── menu/                    # Interface do usuário console
+│           ├── MenuPrincipal.java
+│           ├── MenuCliente.java
+│           ├── MenuConta.java
+│           ├── MenuTransacao.java
+│           ├── MenuInvestimento.java
+│           └── MenuRelatorio.java
+└── sistema-gui/                     # Módulo interface gráfica
+    ├── pom.xml
+    └── src/main/java/com/nttdata/banco/gui/
+        ├── MainGUI.java             # Classe principal GUI
+        ├── view/                    # Telas da interface
+        ├── components/              # Componentes acessíveis
+        ├── theme/                   # Gerenciamento de temas
+        └── utils/                   # Utilitários e acessibilidade
+```
 
 🔧 Como Executar
 
 Pré-requisitos
 - Java 17 ou superior
+- Maven 3.6+ (ou use o wrapper mvnw incluído)
 - IDE de sua preferência (IntelliJ IDEA, Eclipse, VS Code)
 
-Compilação e Execução
+Compilação e Execução com Maven
 
 1. Clone o repositório:
 
+```bash
 git clone https://github.com/Blindex09/sistema-bancario-poo.git
 cd sistema-bancario-poo
+```
 
 2. Compile o projeto:
 
-javac -d out -cp src src/main/java/com/nttdata/banco/Main.java src/main/java/com/nttdata/banco/A*/A.java
+```bash
+mvn clean compile
+```
 
-3. Execute o sistema:
+3. Execute o sistema em modo console:
 
-java -cp out com.nttdata.banco.Main
+```bash
+mvn exec:java -pl sistema-core
+```
+
+4. Execute a interface gráfica:
+
+```bash
+mvn exec:java -pl sistema-gui
+```
+
+5. Execute os testes:
+
+```bash
+mvn test
+```
+
+Executar Testes Personalizados
+```bash
+java -cp sistema-core/target/classes:sistema-core/target/test-classes com.nttdata.banco.TestRunner
+```
 
 Usando IDE
-1. Importe o projeto na sua IDE
+1. Importe o projeto como projeto Maven
 2. Configure o JDK 17+
-3. Execute a classe Main.java
+3. Execute a classe `Main.java` (console) ou `MainGUI.java` (interface gráfica)
+
+Gerar JAR executável
+```bash
+mvn clean package
+java -jar sistema-gui/target/sistema-bancario-gui-standalone.jar
+```
 
 🎮 Como Usar
 
